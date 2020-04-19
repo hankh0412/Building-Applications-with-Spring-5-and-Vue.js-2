@@ -19,6 +19,7 @@ function User (name, department) {
     enumerable: true,
     configurable: false
   }); 
+
   Object.defineProperty(this, 'department', {
     get: function () {
       console.log('Retrieving department');
@@ -39,3 +40,16 @@ function User (name, department) {
     configurable: false
   }); 
 } 
+
+var user = new User('Sunny', 'Engineering');
+console.log(user.department);
+user.department = 'Marketing';
+user.greeting();
+Object.defineProperty(user,'name',{
+  enumerable:false
+});
+delete user.name;
+delete user.department;
+for(var prop in user){
+  console.log(prop);
+}

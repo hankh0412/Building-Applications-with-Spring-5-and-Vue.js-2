@@ -5,6 +5,12 @@ function User (name, interests) {
 User.prototype.greeting = function () {
    console.log('Hi, I\'m ' + this.name + '.');
 }
+
+console.log(User.constructor===Function);
+console.log(User.prototype.constructor===User);
+var user = new User();
+console.log(user.__proto__===User.prototype);
+
 function TeamMember (name, interests, tasks) {
    User.call(this, name, interests);
    this.tasks = tasks;

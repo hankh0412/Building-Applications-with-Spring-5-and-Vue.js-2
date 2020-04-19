@@ -20,6 +20,15 @@ var user = {
 user.greeting();  // Hi, I'm Sunny.
 
 
+// Use get (ES5)
+var user = {
+  get role() {
+    return 'Engineer';
+  }
+}
+user.role;
+
+
 
 // Create a constructor function
 function User (name, interests) {
