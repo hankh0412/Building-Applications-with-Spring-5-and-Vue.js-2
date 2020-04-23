@@ -3,7 +3,11 @@ function workout(exercise1) {
   var todos = Array.prototype.slice.call(arguments, workout.length);
   console.log('Start from ' + exercise1);
   console.log(todos.length + ' more to do');
+  console.log(arguments);
+  console.log('Args length: ' + workout.length);
+  console.log(todos);
 }
+workout('Treadmill', 'Pushup', 'Spinning');
 // equivalent to rest parameters in ES6
 function workout(exercise1, ...todos) {
   console.log('Start from ' + exercise1);    // Start from Treadmill

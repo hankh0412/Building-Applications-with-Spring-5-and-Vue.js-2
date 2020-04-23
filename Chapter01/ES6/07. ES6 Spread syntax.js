@@ -3,8 +3,8 @@ let normalTasks = ['Book a hotel', 'Rent a car'];
 let allTasks = [...urgentTasks, ...normalTasks];
 
 // Spread tasks to a list of parameters
-((first, second) => {
-  console.log('Working on ' + first + ' and ' + second)
+((first, second, third, fourth) => {
+  console.log('Working on ' + first + ' and ' + second + ' and ' + third + ' and ' + fourth)
 })(...allTasks);
 
 
