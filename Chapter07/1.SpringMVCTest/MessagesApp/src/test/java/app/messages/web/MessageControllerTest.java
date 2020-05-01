@@ -35,11 +35,13 @@ public class MessageControllerTest {
   @Test
   public void getMessages_existingMessages_shouldReturnJsonArray() throws Exception {
     Message firstMessage = new Message("First Message");
-    List<Message> allMessages = Arrays.asList(firstMessage);
+    Message secondMessage = new Message("Second Message");
+    List<Message> allMessages = Arrays.asList(firstMessage,secondMessage);
     when(service.getMessages()).thenReturn(allMessages);
     mvc.perform(get("/api/messages").contentType(MediaType.APPLICATION_JSON))
     .andExpect(status().isOk())
-    .andExpect(jsonPath("$", hasSize(1)))
-    .andExpect(jsonPath("$[0].text", is(firstMessage.getText())));
+    .andExpect(jsonPath("$", hasSize(2)))
+    .andExpect(jsonPath("$[0].text", is(firstMessage.getText())))
+    .andExpect(jsonPath("$[1].text", is(secondMessage.getText())));
   }
 }
